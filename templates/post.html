@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ post.title }}</h1>
+
+  <p>
+    {{ post.content | replace('\n', '<br>') | safe }}
+  </p>
+
+  <p>
+    <a href="/">← Back</a>
+  </p>
+{% endblock %}

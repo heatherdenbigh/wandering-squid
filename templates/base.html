@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Wandering Squid{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="site-nav">
+    <a href="/" class="home-link">Home</a>
+
+    <div class="site-brand">
+      <div class="site-title">Wandering Squid</div>
+      <div class="site-tagline">Meanderings from the desert to the sea...</div>
+    </div>
+  </div>
+</header>
+
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+<footer class="site-footer">
+  </footer>
+
+</body>
+</html>
