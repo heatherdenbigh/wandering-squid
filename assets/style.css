@@ -1,0 +1,262 @@
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  height: 100%;
+}
+
+body {
+  font-family:'Libre Baskerville', Georgia, serif;
+  background: #f8fbfc;
+  /* background: lime; */
+  color: #f5f9fc;
+  display: flex;
+  flex-direction: column;
+ }
+
+/* Banner */
+.banner {
+  position: relative;
+  isolation: isolate;
+  background: radial-gradient(
+    circle at top,
+    #15172b 0%,
+    #0c0f1f 60%,
+    #070a14 100%
+  );
+  text-align: center;
+  overflow: hidden;
+
+  /* Reserve space for the wave */
+  --wave-height: 40px;
+
+  padding: 3rem 2rem calc(1rem + var(--wave-height));
+}
+
+/* Navigation */
+.nav {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 1.2rem;
+}
+
+.nav a {
+  color: #f5f9fc;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Title */
+.title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  letter-spacing: 0.1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.subtitle {
+  font-style: italic;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  opacity: 0.9;
+  position: relative;
+  z-index: 2;
+  /* margin-bottom: 0.75rem; reduce this */
+
+}
+
+/* Wave */
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--wave-height);
+  background-image: url("../images/wave.svg");
+  background-repeat: repeat-x;
+  background-position: bottom left;
+  background-size: auto 100%;        /* keep height fixed, scale to height */
+  /* animation: wave-slide 50s linear infinite; */
+  pointer-events: none;
+}
+
+/* wave animaltion */
+@keyframes wave-slide {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 2400px;
+  }
+}
+/* footer style and wave divider */
+.bottom-banner {
+  position: relative; 
+  background: #0c0f1f;
+  color: #f5f9fc;
+  padding: 1rem;
+  padding-top: calc(0.5rem + 20px);
+  text-align: center;
+  margin-top: auto;
+  overflow: hidden;
+}
+
+.bottom-text {
+  opacity: 0.9;
+  font-size: 0.6rem
+}
+
+.footer-wave {
+  background:#0c0f1f;
+  position: absolute;  
+  top: 0;               /* stick to top of footer */
+  left: 0;
+  height: 20px;
+  width: 100%;
+  background-image: url("../images/wave.svg");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-position: left bottom;
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+/* blog post page styling */
+
+/* Page background behind the post */
+.page-background {
+  background: #f8fbfc;
+  padding: 4rem 1rem;
+}
+
+.post-sheet {
+  background: white;
+  color: #1a1a1a;
+
+  max-width: 720px;       /* A4-like reading width */
+  margin: 0 auto;         /* center horizontally */
+
+  padding: 3rem 3rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  border-radius: 2px;
+}
+.post-title {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-bottom: 2.5rem;
+}
+
+.post-body p {
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* content block for image */
+.post-image {
+  margin: 3rem 0;
+  text-align: center;
+}
+/* image itself */
+.post-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.post-image figcaption {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+.post-page .banner {
+  --wave-height: 40px;
+  padding: 3rem 2rem calc(5rem + var(--wave-height));
+}
+
+.post-page .subtitle {
+  margin-bottom: 3rem;
+}
+
+/* landing/index page tile formatting */
+.home-content {
+  background: #f8fbfc;
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.post-tile {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  max-width: 800px;
+  width: 100%;
+
+  background: #fafcfd;
+  color: #1a1a1a;
+  text-decoration: none;
+
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #dfe6eb;
+
+  /* Shadow mostly on bottom + right */
+  box-shadow: 10px 10px 0 rgba(0,0,0,0.08);
+}
+
+.post-thumb {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex: 0 0 auto;
+}
+
+.post-tile-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+}
+
+.post-tile-excerpt {
+  font-size: 0.95rem;
+  opacity: 0.75;
+  line-height: 1.4;
+}
+.post-tile:hover {
+  transform: translateY(-2px);
+}
+.post-tile {
+  transition: transform 150ms ease;
+}
+.post-list {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 1.5rem;            /* space between tiles */
+  max-width: 800px;
+  width: 100%;
+}
+.home-content {
+  background: #f8fbfc;
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.post-list-title{
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  color: #1a1a1a;
+}
